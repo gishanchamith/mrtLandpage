@@ -45,41 +45,39 @@ const LandingPage: React.FC = () => {
       <div className="topo-lines z-2"></div>
 
       {/* Main Content */}
-      <main className="flex-grow flex items-center justify-center relative z-10 px-4">
+      <main className="flex-grow flex items-center justify-center relative z-10 px-4 sm:px-6">
         <div className="text-center">
-          <h1 className="text-6xl md:text-8xl font-black tracking-tight drop-shadow-sm">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight drop-shadow-sm leading-tight">
             <span className="text-black">mrt</span>
-            <span className="mx-4 text-black font-light">=</span>
-            <span className="bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent">
+            <span className="mx-2 sm:mx-4 text-black font-light">=</span>
+            <span className="bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent block sm:inline">
               Moratuwa
             </span>
           </h1>
-          <p className="mt-4 text-slate-400 font-medium tracking-widest text-sm md:text-base uppercase opacity-80">
-            Innovation & Excellence
-          </p>
+
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t border-slate-200 py-6 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6 relative z-20 bg-white/80 backdrop-blur-md">
-        <div className="flex flex-wrap justify-center md:justify-start gap-8 text-sm text-slate-600 font-medium">
+      <footer className="w-full border-t border-slate-200 py-6 px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 relative z-20 bg-white/80 backdrop-blur-md">
+        <div className="flex flex-wrap justify-center md:justify-start gap-4 sm:gap-8 text-xs sm:text-sm text-slate-600 font-medium">
           <a href="https://info.mrt.lk" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-700 transition-colors group">
             <i className="fa-solid fa-globe group-hover:rotate-12 transition-transform"></i>
             info.mrt.lk
           </a>
           <a href="mailto:contact@mrt.lk" className="flex items-center gap-2 hover:text-blue-700 transition-colors group">
             <i className="fa-solid fa-envelope group-hover:-translate-y-1 transition-transform"></i>
-            contact@mrt.lk 
+            contact@mrt.lk
           </a>
-            <a href="tel:0771595616" className="flex items-center gap-2 hover:text-blue-700 transition-colors group">
+          <a href="tel:0771595616" className="flex items-center gap-2 hover:text-blue-700 transition-colors group">
             <i className="fa-solid fa-phone text-blue-600/50"></i>
             0771595616
-            </a>
-        </div>
-          <a href="https://webmail.mrt.lk" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-700 transition-colors group">
-            <i className="fa-solid fa-globe group-hover:rotate-12 transition-transform"></i>
-            webmail.mrt.lk
           </a>
+        </div>
+        <a href="https://webmail.mrt.lk" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-700 transition-colors group text-xs sm:text-sm">
+          <i className="fa-solid fa-globe group-hover:rotate-12 transition-transform"></i>
+          webmail.mrt.lk
+        </a>
 
 
       </footer>

@@ -57,63 +57,61 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen bg-slate-50">
+    <div className="flex flex-col md:flex-row min-h-screen bg-slate-50">
       {/* Sidebar */}
-      <aside className="w-64 bg-slate-900 text-white flex-shrink-0 flex flex-col hidden md:flex">
-        <div className="p-6 border-b border-slate-800">
-          <h1 className="text-2xl font-black">
+      <aside className="w-full md:w-64 bg-slate-900 text-white flex-shrink-0 flex flex-col">
+        <div className="p-4 md:p-6 border-b border-slate-800">
+          <h1 className="text-xl md:text-2xl font-black">
             mrt <span className="font-light text-slate-400">=</span>
           </h1>
         </div>
-        <nav className="flex-grow p-4 space-y-2">
-          <button className="w-full flex items-center gap-3 px-4 py-3 bg-blue-700 rounded-xl text-sm font-semibold transition-all">
+        <nav className="flex md:flex-col gap-2 p-3 md:p-4 overflow-x-auto md:overflow-visible">
+          <button className="flex items-center gap-2 px-4 py-2.5 bg-blue-700 rounded-xl text-xs sm:text-sm font-semibold transition-all min-w-[140px] md:w-full">
             <i className="fa-solid fa-house"></i> Dashboard
           </button>
-          <button className="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-xl text-sm font-medium transition-all text-slate-400 hover:text-white">
+          <button className="flex items-center gap-2 px-4 py-2.5 hover:bg-slate-800 rounded-xl text-xs sm:text-sm font-medium transition-all text-slate-400 hover:text-white min-w-[140px] md:w-full">
             <i className="fa-solid fa-envelope"></i> Mail
           </button>
-          <button className="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-xl text-sm font-medium transition-all text-slate-400 hover:text-white">
+          <button className="flex items-center gap-2 px-4 py-2.5 hover:bg-slate-800 rounded-xl text-xs sm:text-sm font-medium transition-all text-slate-400 hover:text-white min-w-[180px] md:w-full">
             <i className="fa-solid fa-calendar"></i> Academic Calendar
           </button>
-          <button className="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-xl text-sm font-medium transition-all text-slate-400 hover:text-white">
+          <button className="flex items-center gap-2 px-4 py-2.5 hover:bg-slate-800 rounded-xl text-xs sm:text-sm font-medium transition-all text-slate-400 hover:text-white min-w-[140px] md:w-full">
             <i className="fa-solid fa-graduation-cap"></i> Courses
           </button>
-        </nav>
-        <div className="p-4 mt-auto">
           <button 
             onClick={() => navigate('/')}
-            className="w-full flex items-center gap-3 px-4 py-3 hover:bg-red-900/20 rounded-xl text-sm font-medium text-red-400 transition-all"
+            className="flex items-center gap-2 px-4 py-2.5 hover:bg-red-900/20 rounded-xl text-xs sm:text-sm font-medium text-red-400 transition-all min-w-[140px] md:w-full md:mt-auto"
           >
             <i className="fa-solid fa-sign-out-alt"></i> Logout
           </button>
-        </div>
+        </nav>
       </aside>
 
       {/* Main Area */}
-      <main className="flex-grow flex flex-col h-full overflow-hidden">
+      <main className="flex-grow flex flex-col overflow-hidden">
         {/* Header */}
-        <header className="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-8 flex-shrink-0">
-          <h2 className="text-xl font-bold text-slate-800">MRT AI Assistant</h2>
-          <div className="flex items-center gap-4">
-            <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold">JD</div>
-            <span className="text-sm font-semibold text-slate-600">John Doe</span>
+        <header className="bg-white border-b border-slate-200 h-14 md:h-16 flex items-center justify-between px-4 md:px-8 flex-shrink-0">
+          <h2 className="text-base sm:text-lg md:text-xl font-bold text-slate-800">MRT AI Assistant</h2>
+          <div className="flex items-center gap-2 sm:gap-4">
+            <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-xs md:text-sm">JD</div>
+            <span className="text-xs sm:text-sm font-semibold text-slate-600">John Doe</span>
           </div>
         </header>
 
         {/* Content Area - Chat Interface */}
-        <div className="flex-grow overflow-hidden flex flex-col p-4 md:p-8 bg-slate-50">
+        <div className="flex-grow overflow-hidden flex flex-col p-3 sm:p-4 md:p-8 bg-slate-50">
           <div className="flex-grow bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col max-w-4xl mx-auto w-full">
             
             {/* Messages */}
-            <div className="flex-grow overflow-y-auto p-6 space-y-6">
+            <div className="flex-grow overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
               {messages.map((msg, idx) => (
                 <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] rounded-2xl p-4 shadow-sm ${
+                  <div className={`max-w-[90%] sm:max-w-[80%] rounded-2xl p-3 sm:p-4 shadow-sm ${
                     msg.role === 'user' 
                       ? 'bg-blue-600 text-white rounded-br-none' 
                       : 'bg-slate-100 text-slate-800 rounded-bl-none'
                   }`}>
-                    <p className="text-sm leading-relaxed">{msg.content}</p>
+                    <p className="text-xs sm:text-sm leading-relaxed">{msg.content}</p>
                   </div>
                 </div>
               ))}
@@ -130,19 +128,19 @@ const Dashboard: React.FC = () => {
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t border-slate-100 bg-slate-50">
-              <form onSubmit={handleSendMessage} className="flex gap-2">
+            <div className="p-3 sm:p-4 border-t border-slate-100 bg-slate-50">
+              <form onSubmit={handleSendMessage} className="flex flex-col sm:flex-row gap-2">
                 <input 
                   type="text" 
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
                   placeholder="Ask me anything about Moratuwa..."
-                  className="flex-grow px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all bg-white"
+                  className="flex-grow px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all bg-white text-sm"
                 />
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="bg-blue-700 hover:bg-blue-800 text-white w-12 h-12 flex items-center justify-center rounded-xl shadow-md transition-all disabled:opacity-50"
+                  className="bg-blue-700 hover:bg-blue-800 text-white h-12 px-4 sm:w-12 flex items-center justify-center rounded-xl shadow-md transition-all disabled:opacity-50 text-sm"
                 >
                   <i className="fa-solid fa-paper-plane"></i>
                 </button>

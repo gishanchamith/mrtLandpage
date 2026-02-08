@@ -14,13 +14,13 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 topo-bg relative p-4">
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 topo-bg relative p-4 sm:p-6">
       <div className="topo-lines"></div>
       
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md relative z-10 border border-slate-100">
+      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl w-full max-w-md relative z-10 border border-slate-100">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-slate-900">Mail Portal</h2>
-          <p className="text-slate-500 mt-2">Sign in with your @mrt.lk account</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Mail Portal</h2>
+          <p className="text-slate-500 mt-2 text-sm sm:text-base">Sign in with your @mrt.lk account</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
