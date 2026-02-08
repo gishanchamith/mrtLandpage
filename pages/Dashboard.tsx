@@ -1,13 +1,11 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GoogleGenAI } from '@google/genai';
-
-// Initialize Gemini
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+import type { GoogleGenAI } from '@google/genai';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
+  const aiRef = useRef<GoogleGenAI | null>(null);
   const [prompt, setPrompt] = useState('');
   const [messages, setMessages] = useState<{role: 'user' | 'assistant', content: string}[]>([
     { role: 'assistant', content: "Hello! I'm your MRT Moratuwa Assistant. How can I help you today? You can ask me about campus facilities, city landmarks, or research programs." }
@@ -29,7 +27,18 @@ const Dashboard: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await ai.models.generateContent({
+      if (!aiRef.current) {
+        const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+        if (!apiKey) {
+          setMessages(prev => [...prev, { role: 'assistant', content: "Missing API key. Please set GEMINI_API_KEY in a .env file." }]);
+          setLoading(false);
+          return;
+        }
+        const { GoogleGenAI } = await import('@google/genai');
+        aiRef.current = new GoogleGenAI({ apiKey });
+      }
+
+      const response = await aiRef.current.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: userMessage,
         config: {

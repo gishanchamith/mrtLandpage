@@ -24,7 +24,7 @@ const LandingPage: React.FC = () => {
       <div 
         className="absolute inset-0 transition-opacity duration-1000"
         style={{
-          background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(30, 64, 175, 0.15) 0%, rgba(147, 51, 234, 0.1) 25%, rgba(255, 255, 255, 0) 50%)`,
+          background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(30, 64, 175, 0.22) 0%, rgba(147, 51, 234, 0.16) 25%, rgba(255, 255, 255, 0) 52%)`,
           pointerEvents: 'none',
           zIndex: 1
         }}
@@ -32,16 +32,16 @@ const LandingPage: React.FC = () => {
 
       {/* Second Glow for more "pop" */}
       <div 
-        className="absolute inset-0 opacity-40"
+        className="absolute inset-0 opacity-50"
         style={{
-          background: `radial-gradient(circle at ${100 - mousePos.x}% ${100 - mousePos.y}%, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 0) 40%)`,
+          background: `radial-gradient(circle at ${100 - mousePos.x}% ${100 - mousePos.y}%, rgba(59, 130, 246, 0.16) 0%, rgba(255, 255, 255, 0) 42%)`,
           pointerEvents: 'none',
           zIndex: 1
         }}
       ></div>
 
       {/* Topographic Background Overlay */}
-      <div className="topo-bg absolute inset-0 opacity-30 z-0"></div>
+      <div className="topo-bg absolute inset-0 opacity-35 z-0"></div>
       <div className="topo-lines z-2"></div>
 
       {/* Main Content */}
@@ -69,21 +69,19 @@ const LandingPage: React.FC = () => {
           </a>
           <a href="mailto:contact@mrt.lk" className="flex items-center gap-2 hover:text-blue-700 transition-colors group">
             <i className="fa-solid fa-envelope group-hover:-translate-y-1 transition-transform"></i>
-            contact@mrt.lk
+            contact@mrt.lk 
           </a>
-          <span className="flex items-center gap-2">
+            <a href="tel:0771595616" className="flex items-center gap-2 hover:text-blue-700 transition-colors group">
             <i className="fa-solid fa-phone text-blue-600/50"></i>
             0771595616
-          </span>
+            </a>
         </div>
+          <a href="https://webmail.mrt.lk" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-700 transition-colors group">
+            <i className="fa-solid fa-globe group-hover:rotate-12 transition-transform"></i>
+            webmail.mrt.lk
+          </a>
 
-        <button 
-          onClick={() => navigate('/login')}
-          className="bg-[#1e40af] hover:bg-[#1e3a8a] text-white px-8 py-3 rounded-full font-bold text-sm transition-all transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 flex items-center gap-2"
-        >
-          Login to Mail Portal
-          <i className="fa-solid fa-arrow-right text-xs"></i>
-        </button>
+
       </footer>
     </div>
   );
